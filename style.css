@@ -1,0 +1,130 @@
+* {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+		box-sizing: border-box;
+		font-family: sans-serif;
+}
+body {
+    background: radial-gradient(#fff,#ddd) fixed;
+    max-width: 90%;
+    margin:0 auto;
+}
+
+/* inside grid items */
+h1, h2, h3, p {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+h1, h2{margin-top:50px;}
+h3 {
+    height: 50px;
+    padding:10px 0;
+    background:linear-gradient(to bottom, rgba(3,3,3,0.2), transparent);
+}
+p {padding:10px;}
+
+/* styling ¨grid-item¨ class (only in the grid layout),
+couldn´t target the class like this ¨#grid-floats .grid-item¨
+so i used the parent id with the child tag */
+#grid-floats li {
+    background: linear-gradient(to top, rgba(3,3,3,0.2), transparent);
+}
+
+li img  {
+    width: 70%;
+    transform: translate(20%);
+    margin-top: 10px;
+}
+
+
+    /* grid container */
+#grid-floats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+/* desktop view */
+@media only screen and (min-width:769px) {
+    #grid-floats li:nth-child(1) {grid-column: span 2;}
+}
+/* tablet view */
+@media only screen and (max-width: 768px) {
+    #grid-floats {grid-template-columns: 1fr 1fr 1fr;}
+    #grid-floats li:nth-child(1) {grid-column: 1 / 2;}
+    #grid-floats li:nth-child(2) {grid-column: 3 / 3;} /* http://i0.kym-cdn.com/photos/images/facebook/000/234/765/b7e.jpg */
+}
+/* mobile view */
+@media only screen and (max-width: 480px) {
+    #grid-floats {grid-template-columns: 1fr 1fr;}
+    #grid-floats li:nth-child(1) {grid-column: 1 / 1;}
+    #grid-floats li:nth-child(2) {grid-column: 2 / 2;}
+}
+
+#grid-floats li:hover {box-shadow: 0 5px 10px 0px black;}
+
+		/* Flexbox container */
+#grid-flex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: center;
+}
+    /* flex items*/
+#grid-flex li {
+	max-width: 25%;
+	flex-grow: 1;	
+	border: 1px #333;
+    border-style: solid dashed solid dashed;
+    background: linear-gradient(to top, rgba(3,3,3,0.2), transparent);
+}
+
+/* desktop view */
+@media only screen and (min-width:769px) {
+	#grid-flex li:nth-child(1) {max-width: 50%;}
+}
+/* tablet view */
+@media only screen and (max-width: 768px) {
+	#grid-flex li {max-width: 33.3%;}
+	#grid-flex li:nth-child(1) {max-width: 50%;}
+	#grid-flex li:nth-child(2) {max-width: 50%;}
+}
+
+/* mobile view */
+@media only screen and (max-width: 480px) {
+	#grid-flex li {max-width: 50%;}
+}
+
+#grid-flex li:hover {box-shadow: 0 5px 10px 0px black;}
+
+
+
+    /* Links that helped me */
+/* 
+    A Complete Guide to Grid
+https://css-tricks.com/snippets/css/complete-guide-grid/
+    Centering in CSS Grid
+https://stackoverflow.com/questions/45536537/centering-in-css-grid
+
+
+    A Complete Guide to Flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    Flexbox CSS In 20 Minutes (vid)
+https://www.youtube.com/watch?v=JJSoEo8JSnc
+
+
+    Responsive Web Design - Media Queries
+https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+
+
+    CSS border-style Property
+https://www.w3schools.com/cssref/pr_border-style.asp
+https://www.w3schools.com/cssref/playit.asp?filename=playcss_border-style
+
+
+    CSS Radial Gradient
+https://css-tricks.com/snippets/css/css-radial-gradient/
+
+*/
